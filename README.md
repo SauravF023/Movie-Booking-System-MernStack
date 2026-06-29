@@ -1,64 +1,220 @@
-# Movie-Booking-System-MernStack
-A full-stack Movie Booking System built using the MERN stack (MongoDB, Express.js, React, Node.js) with seat selection, snack &amp; parking add-ons, QR-based ticket verification, and production deployment on Vercel &amp; Render.
+# 🎬 QuickShow – MERN Movie Ticket Booking System
 
-🌟 Overview
+A modern **full-stack movie ticket booking platform** built using the **MERN Stack**, enabling users to discover movies, book tickets with interactive seat selection, make secure online payments, and manage bookings through an intuitive interface. The platform also includes a powerful **Admin Dashboard** for managing movies, shows, and bookings.
 
-QuickShow is a production-ready, full-stack movie ticket booking application built on the MERN stack. It lets users browse real-time movie catalogs powered by the TMDB API, pick seats interactively, pay securely via Stripe, and receive booking confirmations by email — all within a fast, mobile-first interface.
+---
 
-Administrators get a dedicated dashboard to manage shows, monitor bookings, handle movie listings, and view revenue analytics — no separate backend tool needed.
+## 🚀 Features
 
-Why QuickShow?
+### 👤 User Features
 
-ProblemQuickShow's SolutionFinding movies + booking in one placeUnified discovery-to-checkout flowReal-time seat availabilityLive seat-map with lock mechanismSecure paymentsStripe with webhook verificationAsync notificationsInngest background jobs for emailMedia management at scaleCloudinary for posters & thumbnailsAuth without the boilerplateClerk handles sign-up, login, sessions.
+* 🔐 Secure authentication using **Clerk**
+* 🎬 Browse trending and upcoming movies (TMDB API)
+* 🔍 Search movies with detailed information
+* 🎟️ Interactive seat selection
+* 🍿 Snack add-ons during booking
+* 💳 Secure online payments using **Stripe**
+* 📄 QR code ticket generation with PDF download
+* 📧 Email booking confirmations
+* 📱 Fully responsive design
 
-🛠 Tech Stack
+### 👨‍💼 Admin Features
 
-Frontend (/client)
+* 📊 Admin dashboard
+* 🎥 Manage movies and shows
+* 🎫 View and manage bookings
+* 💰 Monitor booking analytics
+* ✔️ Ticket verification system
 
-TechnologyVersionPurposeReact19UI libraryViteLatestBuild tool & dev serverTailwind CSSv4Utility-first stylingClerkLatestAuthentication & user managementStripe.jsLatestClient-side payment elementsReact Router DOMv6+Client-side routingAxios / Fetch-HTTP requests to backend
+---
 
-Backend (/server)
+## 🛠️ Tech Stack
 
-TechnologyVersionPurposeNode.jsv18+JavaScript runtimeExpressv4REST API frameworkMongoDBAtlasNoSQL databaseMongooseLatestODM for MongoDBClerk SDKLatestServer-side auth verificationStripeLatestPayment intent & webhooksInngestLatestBackground job schedulingNodemailerLatestTransactional email via SMTPTMDB APIv3Movie metadata & postersCloudinaryLatestImage/media managementNodemonLatestDev auto-restart
+| Category        | Technologies                 |
+| --------------- | ---------------------------- |
+| Frontend        | React.js, Tailwind CSS, Vite |
+| Backend         | Node.js, Express.js          |
+| Database        | MongoDB Atlas                |
+| Authentication  | Clerk                        |
+| Payments        | Stripe                       |
+| Movie Data      | TMDB API                     |
+| Background Jobs | Inngest                      |
+| Deployment      | Vercel, Render               |
+| Others          | JWT, QR Code, jsPDF          |
 
+---
 
-✨ Features
+## 📂 Project Structure
 
-🎟️ User Features
+```text
+QuickShow
+├── client
+│   ├── src
+│   ├── public
+│   └── package.json
+│
+├── server
+│   ├── controllers
+│   ├── routes
+│   ├── models
+│   ├── middleware
+│   ├── configs
+│   ├── inngest
+│   └── package.json
+│
+└── README.md
+```
 
+---
 
-Authentication — Sign up, log in, and manage sessions via Clerk (supports OAuth)
-Movie Discovery — Browse trending, upcoming, and now-playing movies via TMDB API
-Search & Filter — Filter movies by genre, rating, and release date
-Movie Detail Pages — Full details: synopsis, cast, ratings, trailers
-Interactive Seat Selection — Visual theater seat map with live availability
-Secure Checkout — Stripe-powered payment flow with 3D Secure support
-Booking Confirmation — Automated email confirmation after successful payment
-My Bookings — Dashboard to view and manage personal booking history
-Favorites — Save and revisit favourite movies
+## ⚙️ Installation
 
+### 1️⃣ Clone Repository
 
-👨‍💼 Admin Features
+```bash
+git clone https://github.com/elyse502/QuickShow.git
+cd QuickShow
+```
 
+### 2️⃣ Install Dependencies
 
-Admin Dashboard — At-a-glance revenue, booking counts, and trends
-Show Management — Create, update, and delete movie shows
-Movie Management — Add movies with metadata, posters, and media
-Booking Overview — View and update all user bookings system-wide
-Theater Configuration — Set up theater layouts and seat arrangements
-Analytics — Revenue reporting and occupancy insights
+Server
 
+```bash
+cd server
+npm install
+```
 
-⚙️ Technical Features
+Client
 
+```bash
+cd ../client
+npm install
+```
 
-Background Jobs — Inngest handles async tasks like email dispatch and seat release on payment timeout
-Webhook Handling — Stripe webhook signature verification for secure payment confirmation
-Image Optimization — Cloudinary transforms and delivers optimized movie poster images
-Responsive Design — Mobile-first Tailwind CSS layout that works on all devices
-Input Validation — Server-side schema validation via Mongoose
-Error Handling — Centralized error middleware with meaningful HTTP responses
-CORS & Security — Proper CORS configuration and environment-based secrets
-Vercel Deployment — Both client and server configured for zero-config Vercel deploys
+---
 
+## 🔑 Environment Variables
 
+### Server (.env)
+
+```env
+MONGODB_URI=
+
+CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+
+INNGEST_EVENT_KEY=
+INNGEST_SIGNING_KEY=
+
+TMDB_API_KEY=
+
+STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+
+SENDER_EMAIL=
+SMTP_USER=
+SMTP_PASS=
+```
+
+### Client (.env)
+
+```env
+VITE_CURRENCY=$
+
+VITE_CLERK_PUBLISHABLE_KEY=
+
+VITE_BASE_URL=http://localhost:3000
+
+VITE_TMDB_IMAGE_BASE_URL=https://image.tmdb.org/t/p/original
+```
+
+---
+
+## ▶️ Running the Project
+
+### Backend
+
+```bash
+cd server
+npm run dev
+```
+
+### Frontend
+
+```bash
+cd client
+npm run dev
+```
+
+---
+
+## 🌐 Application URLs
+
+| Service  | URL                   |
+| -------- | --------------------- |
+| Frontend | http://localhost:5173 |
+| Backend  | http://localhost:5000 |
+
+---
+
+## 📡 REST API
+
+### Authentication
+
+```
+POST /api/users/register
+POST /api/users/login
+GET  /api/users/profile
+PUT  /api/users/profile
+```
+
+### Movies & Shows
+
+```
+GET    /api/shows
+GET    /api/shows/:id
+POST   /api/admin/shows
+PUT    /api/admin/shows/:id
+DELETE /api/admin/shows/:id
+```
+
+### Bookings
+
+```
+POST /api/bookings
+GET  /api/bookings/user
+GET  /api/admin/bookings
+PUT  /api/bookings/:id
+```
+
+### Payments
+
+```
+POST /api/bookings/create-payment-intent
+POST /api/webhooks/stripe
+```
+
+---
+
+## ✨ Highlights
+
+* 🎬 Movie discovery powered by TMDB
+* 🎟️ Interactive seat booking system
+* 💳 Stripe payment integration
+* 📄 QR code & PDF ticket generation
+* 📧 Automated email notifications
+* 🔐 Clerk authentication
+* 📱 Fully responsive UI
+* ☁️ Cloud deployment using Vercel & Render
+* ⚡ Fast development with Vite
+* 🛡️ Secure and scalable MERN architecture
+
+---
+
+## 👨‍💻 Author
+
+**Saurav Mishra**
+
+If you found this project helpful, consider giving it a ⭐ on GitHub!
