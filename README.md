@@ -72,7 +72,7 @@ QuickShow
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/elyse502/QuickShow.git
+git clone https://github.com/SauravF023/Movie-Booking-System-MernStack.git
 cd QuickShow
 ```
 
@@ -99,35 +99,47 @@ npm install
 ### Server (.env)
 
 ```env
-MONGODB_URI=
+# 🌐 Database
+MONGODB_URI=mongodb://localhost:27017/quickshow
+ 
+# 🔐 Clerk Authentication
+CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
+CLERK_SECRET_KEY=your-clerk-secret-key
+ 
+# ⚙️ Inngest Event Scheduling
+INNGEST_EVENT_KEY=your-inngest-event-key
+INNGEST_SIGNING_KEY=your-inngest-signing-key
+ 
+# 🎬 TMDB API (for movie data)
+TMDB_API_KEY=your-tmdb-api-key
+ 
+# 💳 Stripe Payment Integration
+STRIPE_PUBLISHABLE_KEY=your-stripe-publishable-key
+STRIPE_SECRET_KEY=your-stripe-secret-key
+STRIPE_WEBHOOK_SECRET=your-stripe-webhook-secret
+ 
+# 📧 Email Notifications (Nodemailer or similar SMTP setup)
+SENDER_EMAIL=your-sender@example.com
+SMTP_USER=your-smtp-username
+SMTP_PASS=your-smtp-password
 
-CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-
-INNGEST_EVENT_KEY=
-INNGEST_SIGNING_KEY=
-
-TMDB_API_KEY=
-
-STRIPE_PUBLISHABLE_KEY=
-STRIPE_SECRET_KEY=
-STRIPE_WEBHOOK_SECRET=
-
-SENDER_EMAIL=
-SMTP_USER=
-SMTP_PASS=
 ```
 
 ### Client (.env)
 
 ```env
+# 💱 Currency Symbol
 VITE_CURRENCY=$
 
-VITE_CLERK_PUBLISHABLE_KEY=
+# 🔐 Clerk Authentication (Public Key for Frontend)
+VITE_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
 
+# 🌐 Base API URL (Proxy to Backend)
 VITE_BASE_URL=http://localhost:3000
 
+# 🎞️ TMDB Image Base URL
 VITE_TMDB_IMAGE_BASE_URL=https://image.tmdb.org/t/p/original
+
 ```
 
 ---
@@ -210,6 +222,29 @@ POST /api/webhooks/stripe
 * ☁️ Cloud deployment using Vercel & Render
 * ⚡ Fast development with Vite
 * 🛡️ Secure and scalable MERN architecture
+  
+## Deployment
+The application is configured for deployment on Vercel with the included vercel.json files.
+
+Deploy to Vercel:
+
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
+Contributing
+Fork the repository
+Create a feature branch (git checkout -b feature/amazing-feature)
+Commit your changes (git commit -m 'Add some amazing feature')
+Push to the branch (git push origin feature/amazing-feature)
+Open a Pull Request
+Development Guidelines
+Follow the existing code style and conventions
+Write meaningful commit messages
+Add tests for new features
+Update documentation as needed
+Ensure all tests pass before submitting PR
 
 ---
 
